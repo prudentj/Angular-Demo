@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-demo-prime": {
+      "hosting": {
+        "angular-with-firebase": [
+          "angular-demo-prime"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-demo-prime"
+  }
+}
