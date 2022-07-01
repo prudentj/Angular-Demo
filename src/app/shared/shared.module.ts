@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+//import { MatDialogModule } from '@angular/material/dialog';
 import {MatButtonModule} from "@angular/material/button"
 import {MatToolbarModule}from "@angular/material/toolbar"
 import {MatIconModule}from "@angular/material/icon"
@@ -14,8 +14,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar"
 
 import { RouterModule } from '@angular/router';
 import { ShellComponent } from './shell/shell.component';
+import { DeleteButtonComponent } from './delete-button/delete-button.component';
 
-const components = [ShellComponent]
+const components = [ShellComponent, DeleteButtonComponent]
 const modules =[
   CommonModule,
   MatButtonModule,
@@ -34,7 +35,8 @@ const modules =[
 
 @NgModule({
   declarations: [
-    ...components
+    ...components,
+ 
   ],
   imports: [
    ...modules

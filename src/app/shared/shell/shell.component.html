@@ -1,4 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
+    <!-- Side Nav -->
     <mat-sidenav #drawer class="sidenav" fixedInViewport
         [attr.role]="(isHandset$ |async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over':'side'"
@@ -13,6 +14,7 @@
 
     </mat-nav-list>
     </mat-sidenav>
+    <!-- Top ToolBar -->
     <mat-sidenav-content>
         <mat-toolbar>
             <button

@@ -10,9 +10,11 @@ import { SharedModule } from './shared/shared.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 // import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-// import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+
+// WIll update to new version of Firebase after I get everything else working
 // import { provideDatabase,getDatabase } from '@angular/fire/database';
-// import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 // import { provideFunctions,getFunctions } from '@angular/fire/functions';
 // import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 // import { providePerformance,getPerformance } from '@angular/fire/performance';
@@ -21,7 +23,10 @@ import { environment } from '../environments/environment';
 
 //Doing it the old way so I can finish the turtorial. Will go back and fix this later.
 import { AngularFireModule} from '@angular/fire/compat'
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+//import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+// import {ServiceWorkerModule} from "@angular/"
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,13 +37,15 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    AngularFireModule,
-    AngularFireDatabaseModule
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    //AngularFireDatabaseModule,
+    AngularFireAuthModule,
     // provideAnalytics(() => getAnalytics()),
     // provideAuth(() => getAuth()),
     // provideDatabase(() => getDatabase()),
-    // provideFirestore(() => getFirestore()),
+    provideFirestore(() => getFirestore()),
     // provideFunctions(() => getFunctions()),
     // provideMessaging(() => getMessaging()),
     // providePerformance(() => getPerformance()),
